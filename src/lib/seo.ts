@@ -28,7 +28,7 @@ export function compartilhar({
       title: titulo,
       description: descricao,
       url: caminho,
-      ...(imagemPadrao ? { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: ALT_PADRAO, type: "image/png" }] } : {}),
+      ...(imagemPadrao ? { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: ALT_PADRAO, type: "image/jpeg" }] } : {}),
     },
     twitter: {
       card: "summary_large_image",

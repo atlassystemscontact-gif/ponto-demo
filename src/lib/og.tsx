@@ -2,7 +2,10 @@
 // Foto do site ao fundo (recortada por scripts/gerar-og.mjs), marca "ponto." e título no padrão
 // da casa: sans fino + parte em serif itálico. Usada por app/(opengraph|twitter)-image.tsx e
 // app/encomendas/(opengraph|twitter)-image.tsx.
+// Sai em JPEG (~100 KB): o PNG do next/og passava de 500 KB a 1,2 MB, e o WhatsApp descarta a
+// miniatura da prévia quando a imagem é pesada. sharp vem com o próprio Next (dependência opcional).
 import { ImageResponse } from "next/og";
+import sharp from "sharp";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { LOGO_GRAO, LOGO_LETRAS, LOGO_VIEWBOX } from "@/components/Logo";
@@ -24,11 +27,12 @@ const logo = `data:image/svg+xml;base64,${Buffer.from(
 ).toString("base64")}`;
 
 export const OG_SIZE = { width: 1200, height: 630 };
+export const OG_TIPO = "image/jpeg";
 
 export async function imagemOg({ fundo, titulo, sub }: { fundo: "home" | "encomendas"; titulo: [string, string]; sub: string }) {
   const [leve, media, italico] = await fontes;
   const src = await foto(fundo);
-  return new ImageResponse(
+  const png = new ImageResponse(
     (
       <div style={{ position: "relative", width: "100%", height: "100%", display: "flex", background: "#120c09", fontFamily: "Hanken" }}>
         {/* o motor do next/og (Satori) não aplica `inset`: posição e tamanho explícitos */}
@@ -67,4 +71,6 @@ export async function imagemOg({ fundo, titulo, sub }: { fundo: "home" | "encome
       ],
     },
   );
+  const jpg = await sharp(Buffer.from(await png.arrayBuffer())).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+  return new Response(new Uint8Array(jpg), { headers: { "Content-Type": OG_TIPO } });
 }

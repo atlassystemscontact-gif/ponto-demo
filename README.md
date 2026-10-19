@@ -98,7 +98,7 @@ O endereço da loja também é fictício (`Rua Exemplo, 123`) e, sem `loja.mapa`
 ## Compartilhamento (Open Graph e Twitter)
 - Endereço base: `SITE_URL` em `src/lib/seo.ts` (`https://ponto-demo.vercel.app`).
 - Título e descrição de cada página: `metadata` em `src/app/**/page.tsx` e `layout.tsx`, via `compartilhar()` (`src/lib/seo.ts`).
-- Imagens 1200x630, geradas no build por `src/lib/og.tsx`: foto do site + marca "ponto." + título. Padrão em `src/app/opengraph-image.tsx` e `twitter-image.tsx`; `/encomendas` tem a sua ("Encomendas de Natal.", textos de `encomendas.ts`).
+- Imagens 1200x630 em JPEG (~50-90 KB), geradas no build por `src/lib/og.tsx`: foto do site + marca "ponto." + título. JPEG de propósito: o WhatsApp descarta miniaturas pesadas (o PNG passava de 1 MB). Padrão em `src/app/opengraph-image.tsx` e `twitter-image.tsx`; `/encomendas` tem a sua ("Encomendas de Natal.", textos de `encomendas.ts`).
 - Fotos de fundo: `assets/og/*.jpg`, recortadas por `node scripts/gerar-og.mjs` (rode de novo se trocar as fotos). Fontes TTF em `assets/og/fontes/` (OFL).
 - Para conferir: depois do build, as imagens ficam em `/opengraph-image` e `/encomendas/opengraph-image`.
 
