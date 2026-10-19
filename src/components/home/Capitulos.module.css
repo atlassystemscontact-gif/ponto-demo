@@ -1,0 +1,220 @@
+.trilho {
+  position: relative;
+  background: var(--night);
+}
+.palco {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  color: var(--on-night);
+  background: var(--night);
+}
+.fundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: saturate(0.8) brightness(0.55);
+}
+.vinheta {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 42% 48% at 50% 54%, rgba(18, 12, 9, 0) 0%, rgba(18, 12, 9, 0.35) 60%, rgba(18, 12, 9, 0.9) 100%),
+    linear-gradient(90deg, rgba(18, 12, 9, 0.75) 0%, rgba(18, 12, 9, 0) 30%, rgba(18, 12, 9, 0) 70%, rgba(18, 12, 9, 0.75) 100%);
+}
+.xicara {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: min(60vw, 920px);
+  transform: translateX(-50%);
+}
+.bebida {
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--on-night-2);
+  padding: 6px 14px;
+  border: 1px solid var(--line-night);
+  border-radius: 999px;
+  background: rgba(18, 12, 9, 0.35);
+  backdrop-filter: blur(8px);
+}
+.indice {
+  position: absolute;
+  left: clamp(16px, 2.4vw, 36px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--on-night-2);
+}
+.num {
+  color: var(--on-night);
+  font-weight: 600;
+}
+.marcas {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0;
+}
+.marcas span {
+  width: 1px;
+  height: 18px;
+  background: var(--line-night);
+  transition: background-color 300ms, height 300ms var(--ease-out);
+}
+.marcas span[data-on] {
+  background: var(--on-night);
+  height: 32px;
+}
+.vertical {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.64rem;
+}
+.texto {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(27vw, 400px);
+  display: grid;
+  gap: 18px;
+}
+.texto[data-lado="esq"] {
+  left: clamp(64px, 6.5vw, 120px);
+}
+.texto[data-lado="dir"] {
+  right: clamp(24px, 6vw, 110px);
+  text-align: right;
+  justify-items: end;
+}
+.cap {
+  color: var(--gold);
+}
+.titulo {
+  font-size: clamp(2.1rem, 1rem + 2.5vw, 3.8rem);
+}
+.linha {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.linha > span {
+  display: block;
+}
+.p {
+  color: var(--on-night-2);
+  max-width: 36ch;
+}
+.rodape {
+  position: absolute;
+  left: clamp(16px, 2.4vw, 36px);
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-night);
+}
+.barra {
+  position: relative;
+  width: 90px;
+  height: 1px;
+  background: var(--line-night);
+  overflow: hidden;
+}
+.barra span {
+  position: absolute;
+  inset: 0;
+  background: var(--on-night);
+  transform-origin: 0 50%;
+}
+
+/* sem WebGL / reduced-motion */
+.simples {
+  background: var(--night);
+  color: var(--on-night);
+  padding: 80px var(--gutter);
+  display: grid;
+  gap: 64px;
+}
+.simplesCap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+.simplesCap img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--r);
+}
+.simplesCap h2 {
+  font-size: var(--step-4);
+  margin: 12px 0 16px;
+}
+.simplesCap p:last-child {
+  color: var(--on-night-2);
+}
+.simplesCap :global(.label) {
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .texto,
+  .texto[data-lado="esq"],
+  .texto[data-lado="dir"] {
+    left: 20px;
+    right: 20px;
+    top: auto;
+    bottom: 76px;
+    transform: none;
+    width: auto;
+    text-align: left;
+    justify-items: start;
+    gap: 12px;
+  }
+  .titulo {
+    font-size: clamp(2rem, 1rem + 5vw, 2.8rem);
+  }
+  .indice {
+    top: 96px;
+    transform: none;
+    grid-auto-flow: column;
+    gap: 6px;
+  }
+  .marcas,
+  .vertical {
+    display: none;
+  }
+  .xicara {
+    width: 100%;
+  }
+  .bebida {
+    top: 45%;
+    bottom: auto;
+  }
+  .simplesCap {
+    grid-template-columns: 1fr;
+  }
+}

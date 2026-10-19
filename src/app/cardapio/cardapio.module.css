@@ -1,0 +1,109 @@
+.topo {
+  padding-top: clamp(120px, 16vh, 170px);
+  padding-bottom: 40px;
+}
+.kicker {
+  color: var(--ink-2);
+  margin-bottom: 18px;
+}
+.titulo {
+  font-size: var(--step-5);
+}
+.sub {
+  margin-top: 24px;
+  max-width: 52ch;
+  color: var(--ink-2);
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+.navWrap {
+  position: sticky;
+  top: 74px;
+  z-index: 20;
+  padding: 10px 0;
+  background: linear-gradient(180deg, var(--paper) 70%, rgba(251, 247, 240, 0));
+}
+.nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 0 var(--gutter);
+}
+.nav::-webkit-scrollbar {
+  display: none;
+}
+.pill {
+  position: relative;
+  flex: none;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 0.92rem;
+  transition: color 200ms, border-color 200ms;
+}
+.pill[aria-current="true"] {
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.pillBg {
+  position: absolute;
+  inset: -1px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+.pillTxt {
+  position: relative;
+}
+.secoes {
+  padding-bottom: clamp(80px, 10vw, 140px);
+}
+.secao {
+  scroll-margin-top: 140px;
+  padding-top: 48px;
+}
+.secTopo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.secTitulo {
+  font-size: var(--step-3);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+}
+.secQtd {
+  font-size: 0.8rem;
+  color: var(--ink-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .pill:hover:not([aria-current="true"]) {
+    border-color: var(--line-strong);
+  }
+}
+@media (max-width: 820px) {
+  .navWrap {
+    top: 66px;
+  }
+}
+@media (max-width: 560px) {
+  .grade {
+    grid-template-columns: 1fr;
+  }
+}

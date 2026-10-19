@@ -1,0 +1,106 @@
+.sec {
+  background: var(--paper);
+  padding: clamp(80px, 11vw, 150px) 0 clamp(70px, 9vw, 120px);
+}
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.kicker {
+  color: var(--ink-2);
+  margin-bottom: 16px;
+}
+.titulo {
+  font-size: var(--step-4);
+}
+.controles {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.seta {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  transition: background-color 180ms, transform 160ms var(--ease-out), opacity 200ms;
+}
+.seta svg {
+  width: 20px;
+  height: 20px;
+}
+.seta:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.seta:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.trilho {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  padding: 8px max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter))) 24px;
+  scrollbar-width: none;
+}
+.trilho::-webkit-scrollbar {
+  display: none;
+}
+.trilho:focus-visible {
+  outline-offset: -4px;
+}
+.slot {
+  flex: 0 0 clamp(260px, 26vw, 340px);
+  scroll-snap-align: start;
+}
+.valores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: clamp(56px, 8vw, 110px);
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.valor {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.valor svg {
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.valor h3 {
+  font-size: var(--step-1);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.valor p {
+  color: var(--ink-2);
+  max-width: 34ch;
+}
+@media (hover: hover) and (pointer: fine) {
+  .seta:hover:not(:disabled) {
+    background: var(--cream);
+  }
+}
+@media (max-width: 760px) {
+  .valores {
+    grid-template-columns: 1fr;
+  }
+  .slot {
+    flex-basis: 78vw;
+  }
+  .controles .seta {
+    display: none;
+  }
+}

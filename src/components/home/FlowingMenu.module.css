@@ -1,0 +1,104 @@
+.sec {
+  background: var(--night);
+  color: var(--on-night);
+  padding: clamp(80px, 12vw, 160px) 0 clamp(60px, 8vw, 120px);
+}
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 40px;
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+.titulo {
+  font-size: var(--step-4);
+}
+.sub {
+  color: var(--on-night-2);
+  font-size: 0.9rem;
+}
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-night);
+}
+.linha {
+  border-bottom: 1px solid var(--line-night);
+}
+.link {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(18px, 2.4vw, 30px) max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  color: var(--on-night);
+  text-decoration: none;
+  overflow: hidden;
+}
+.nome {
+  font-size: clamp(2rem, 1rem + 4vw, 4.8rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.qtd {
+  font-size: 0.8rem;
+  color: var(--on-night-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--on-night);
+  color: var(--night);
+  pointer-events: none;
+}
+.inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: rolar 22s linear infinite;
+}
+.trecho {
+  display: flex;
+  align-items: center;
+}
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  white-space: nowrap;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  font-size: clamp(1.8rem, 1rem + 3vw, 3.8rem);
+  letter-spacing: -0.02em;
+}
+.item img {
+  width: clamp(80px, 9vw, 140px);
+  height: clamp(54px, 5.5vw, 86px);
+  object-fit: cover;
+  border-radius: 999px;
+}
+@keyframes rolar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (hover: none) {
+  .overlay {
+    display: none;
+  }
+}

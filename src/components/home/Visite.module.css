@@ -1,0 +1,79 @@
+.sec {
+  background: var(--paper);
+}
+.area {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(90px, 12vw, 170px) 0 clamp(90px, 10vw, 150px);
+}
+.rastro {
+  position: absolute;
+  z-index: 0;
+  width: clamp(150px, 14vw, 220px);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 14px;
+  pointer-events: none;
+  box-shadow: 0 20px 40px -20px rgba(18, 12, 9, 0.5);
+}
+.conteudo {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+.conteudo a,
+.conteudo button {
+  pointer-events: auto;
+}
+.kicker {
+  color: var(--ink-2);
+  margin-bottom: 20px;
+}
+.titulo {
+  font-size: clamp(2.6rem, 1rem + 5.2vw, 7rem);
+  max-width: 16ch;
+}
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 40px;
+  align-items: start;
+  margin-top: clamp(40px, 6vw, 80px);
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.info .label {
+  color: var(--ink-2);
+  margin-bottom: 10px;
+}
+.info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  max-width: 340px;
+}
+.info li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.info li span:first-child {
+  color: var(--ink-2);
+}
+.acoes {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+}
+.nota {
+  font-size: 0.78rem;
+  color: var(--ink-2);
+}
+@media (max-width: 860px) {
+  .info {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

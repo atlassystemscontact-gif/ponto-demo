@@ -1,0 +1,88 @@
+.stage {
+  position: relative;
+  width: 300px;
+  height: 360px;
+}
+.card {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  height: 360px;
+  padding: 0;
+  border: 1px solid rgba(244, 237, 225, 0.22);
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--night-2);
+  color: var(--on-night);
+  text-align: left;
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.7);
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 12, 9, 0) 40%, rgba(18, 12, 9, 0.88) 100%);
+}
+.info {
+  position: absolute;
+  left: 18px;
+  right: 60px;
+  bottom: 18px;
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+}
+.tag {
+  justify-self: start;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.nome {
+  font-family: var(--f-display);
+  font-size: 1.6rem;
+  line-height: 1.02;
+  font-variation-settings: "SOFT" 100, "opsz" 72;
+  letter-spacing: -0.02em;
+}
+.preco {
+  font-size: 0.88rem;
+  color: var(--on-night-2);
+}
+.mais {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--on-night);
+  color: var(--night);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+@media (max-width: 720px) {
+  .stage,
+  .card {
+    width: 220px;
+    height: 270px;
+  }
+  .nome {
+    font-size: 1.25rem;
+  }
+}

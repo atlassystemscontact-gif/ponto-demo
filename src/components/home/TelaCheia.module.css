@@ -1,0 +1,36 @@
+.sec {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--night);
+  color: var(--on-night);
+}
+.foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sombra {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 12, 9, 0.85) 0%, rgba(18, 12, 9, 0.1) 30%, rgba(18, 12, 9, 0.2) 55%, rgba(18, 12, 9, 0.85) 100%);
+}
+.conteudo {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(56px, 10vh, 120px);
+}
+.kicker {
+  color: var(--on-night-2);
+  margin-bottom: 20px;
+}
+.titulo {
+  font-size: var(--step-5);
+}
+.cta {
+  margin-top: 32px;
+}

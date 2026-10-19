@@ -1,0 +1,70 @@
+.footer {
+  position: relative;
+  background: var(--night);
+  color: var(--on-night-2);
+  padding: clamp(80px, 10vw, 140px) 0 calc(28px + 72px);
+  margin-top: -1px;
+}
+.drip {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: clamp(40px, 5.6vw, 80px);
+  fill: var(--paper);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.grid ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.grid a {
+  color: var(--on-night);
+  text-decoration: none;
+}
+.grid .label {
+  color: var(--on-night);
+  margin-bottom: 12px;
+}
+.marca p {
+  margin-top: 18px;
+  max-width: 34ch;
+}
+.logo {
+  width: clamp(180px, 22vw, 300px);
+  height: auto;
+  color: var(--on-night);
+}
+.base {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-night);
+  font-size: 0.82rem;
+}
+@media (hover: hover) and (pointer: fine) {
+  .grid a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .marca {
+    grid-column: 1 / -1;
+  }
+  .base {
+    flex-direction: column;
+  }
+}

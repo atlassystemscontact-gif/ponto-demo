@@ -1,0 +1,222 @@
+.agenda {
+  border: 0;
+  margin: 8px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+}
+/* legend flutuando sai da borda do fieldset (senão a linha do topo corta o texto) */
+.legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 4px;
+  font-size: var(--step-1);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.regra {
+  font-size: 0.92rem;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+.regra strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.cal {
+  padding: 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  max-width: 440px;
+}
+.cal[data-erro] {
+  border-color: var(--accent);
+}
+.mesBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mes {
+  font-weight: 600;
+}
+.seta {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  transition: background-color 160ms, transform 160ms var(--ease-out), opacity 200ms;
+}
+.seta svg {
+  width: 18px;
+  height: 18px;
+}
+.seta:active:not(:disabled) {
+  transform: scale(0.94);
+}
+.seta:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.grade {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.grade:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.grade th {
+  padding: 4px 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.grade td {
+  padding: 2px;
+  text-align: center;
+}
+.dia {
+  width: 100%;
+  max-width: 48px;
+  aspect-ratio: 1;
+  min-height: 40px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  text-decoration: line-through;
+  text-decoration-color: rgba(43, 27, 20, 0.35);
+  transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.dia[data-ok] {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--cream);
+}
+.dia[data-hoje] {
+  border-color: var(--line-strong);
+}
+.dia[data-escolhido] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.dia:active {
+  transform: scale(0.94);
+}
+.dia:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 999px;
+}
+.status {
+  min-height: 1.5em;
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.status[data-aviso] {
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  background: var(--cream);
+}
+.erro {
+  margin-top: 6px;
+  font-size: 0.84rem;
+  color: var(--accent-ink);
+}
+.janelas {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.sublegend {
+  padding: 0;
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.vazio {
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+.opcoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  max-width: 440px;
+}
+.janela {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  padding: 14px 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 180ms, box-shadow 180ms, transform 160ms var(--ease-out);
+}
+.janela:active {
+  transform: scale(0.99);
+}
+.janela input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.janela[data-on] {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+.janela[data-off] {
+  cursor: not-allowed;
+  background: transparent;
+  border-style: dashed;
+}
+.janela[data-off] .jNome {
+  color: var(--ink-2);
+}
+.janela:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.jNome {
+  font-weight: 600;
+}
+.jHoras {
+  font-size: 0.84rem;
+  color: var(--ink-2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .seta:hover:not(:disabled) {
+    background: var(--cream);
+  }
+  .dia[data-ok]:not([data-escolhido]):hover {
+    background: var(--cream-2);
+  }
+  .janela:not([data-off]):hover {
+    border-color: var(--ink);
+  }
+}
+
+@media (max-width: 480px) {
+  .cal {
+    padding: 12px 8px;
+  }
+}

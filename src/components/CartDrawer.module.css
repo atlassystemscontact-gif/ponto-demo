@@ -1,0 +1,177 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 12, 9, 0.48);
+  backdrop-filter: blur(3px);
+}
+.drawer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  width: min(460px, calc(100% - 20px));
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-radius: 24px;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0 30px 80px -20px rgba(18, 12, 9, 0.45);
+}
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px 14px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.titulo {
+  font-weight: 300;
+  font-size: var(--step-2);
+  letter-spacing: -0.03em;
+}
+.titulo span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink-2);
+  margin-left: 6px;
+}
+.fechar {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+}
+.fechar svg {
+  width: 20px;
+  height: 20px;
+}
+.lista {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}
+.linha {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: 14px;
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--line);
+}
+.thumb {
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+.info {
+  min-width: 0;
+}
+.nome {
+  font-weight: 600;
+  line-height: 1.25;
+}
+.det {
+  margin-top: 4px;
+  font-size: 0.84rem;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 10px;
+}
+.link {
+  border: 0;
+  background: none;
+  padding: 8px 2px;
+  font-size: 0.84rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+  color: var(--ink-2);
+}
+.preco {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.rodape {
+  padding: 16px 20px calc(18px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: var(--cream);
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+}
+.totalValor {
+  font-size: var(--step-2);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.nota {
+  margin: 4px 0 14px;
+  font-size: 0.84rem;
+  color: var(--ink-2);
+}
+.cta {
+  width: 100%;
+  min-height: 54px;
+}
+.vazio {
+  flex: 1;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 12px;
+  padding: 24px;
+}
+.vazioTit {
+  font-size: var(--step-3);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.vazio p:not(.vazioTit) {
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+  }
+  .fechar:hover {
+    background: var(--cream);
+  }
+}
+
+@media (max-width: 720px) {
+  .drawer {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}

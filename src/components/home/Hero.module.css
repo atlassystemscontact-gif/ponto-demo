@@ -1,0 +1,122 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 100svh;
+  background: var(--paper);
+}
+.texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding: clamp(110px, 14vh, 150px) clamp(20px, 4vw, 64px) clamp(28px, 5vh, 56px);
+}
+.kicker {
+  color: var(--ink-2);
+}
+.titulo {
+  font-size: clamp(3.2rem, 1rem + 5.5vw, 7.6rem);
+  margin-top: auto;
+}
+.titulo em {
+  display: inline-block;
+  padding-right: 0.06em;
+}
+.baixo {
+  display: grid;
+  gap: 26px;
+}
+.sub {
+  max-width: 46ch;
+  color: var(--ink-2);
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.fatos {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  font-size: 0.86rem;
+  color: var(--ink-2);
+  line-height: 1.35;
+}
+.fatos strong {
+  display: block;
+  font-weight: 300;
+  font-size: var(--step-2);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.foto {
+  position: relative;
+  overflow: hidden;
+  background: var(--night);
+  min-height: 560px;
+}
+.foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 12, 9, 0.25) 0%, rgba(18, 12, 9, 0) 30%, rgba(18, 12, 9, 0) 55%, rgba(18, 12, 9, 0.55) 100%);
+  pointer-events: none;
+}
+.swap {
+  position: absolute;
+  left: clamp(20px, 3vw, 48px);
+  bottom: clamp(28px, 6vh, 64px);
+  z-index: 2;
+}
+.legenda {
+  position: absolute;
+  right: 22px;
+  top: 110px;
+  z-index: 2;
+  color: var(--on-night-2);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+@media (max-width: 900px) {
+  .legenda {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .texto {
+    padding-top: 108px;
+    gap: 28px;
+  }
+  .titulo {
+    margin-top: 12px;
+  }
+  .foto {
+    min-height: 0;
+    height: 92svh;
+    max-height: 720px;
+  }
+  .fatos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    font-size: 0.78rem;
+  }
+}
