@@ -2,6 +2,8 @@
 
 // "Tilted Card" (Superdesign Library / React Bits): o cartão inclina levemente seguindo o mouse.
 // Só em dispositivos com mouse; inclinação máxima pequena para não virar brinquedo.
+// Sem transform-style: preserve-3d de propósito: nenhum filho tem 3D próprio, e o contexto 3D faz o
+// Safari/iPhone ignorar z-index e errar o alvo do toque dentro do cartão.
 import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 import type { ReactNode, PointerEvent } from "react";
 
@@ -27,7 +29,7 @@ export function TiltedCard({ children, className, max = 7 }: { children: ReactNo
 
   return (
     <div style={{ perspective: 900 }} onPointerMove={mover} onPointerLeave={sair} className={className}>
-      <motion.div style={{ rotateX: srx, rotateY: sry, transformStyle: "preserve-3d", height: "100%" }}>{children}</motion.div>
+      <motion.div style={{ rotateX: srx, rotateY: sry, height: "100%" }}>{children}</motion.div>
     </div>
   );
 }

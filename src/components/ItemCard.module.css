@@ -4,6 +4,7 @@
 .card {
   position: relative;
   height: 100%;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -12,16 +13,21 @@
   overflow: hidden;
   transition: border-color 200ms var(--ease-out), box-shadow 300ms var(--ease-out);
 }
-.cobre {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border: 0;
-  background: transparent;
-  border-radius: var(--r);
+/* o foco do botão do nome desenha o anel no cartão inteiro */
+.card:has(.abrir:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
-.cobre:focus-visible {
-  outline-offset: -3px;
+.abrir {
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  letter-spacing: inherit;
+  cursor: pointer;
+}
+.abrir:focus-visible {
+  outline: none;
 }
 .foto {
   position: relative;
@@ -126,22 +132,43 @@
   background: var(--ink);
   border-color: var(--ink);
 }
+/* área de toque 44x44; o círculo visual continua com 38px */
 .add {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin: -3px -3px -3px 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.add:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.addCirculo {
   width: 38px;
   height: 38px;
-  flex: none;
   display: grid;
   place-items: center;
   border-radius: 999px;
   background: var(--ink);
-  color: var(--paper);
   transition: transform 200ms var(--ease-out), background-color 200ms;
 }
-.add svg {
+.add:active .addCirculo {
+  transform: scale(0.9);
+}
+.addCirculo svg {
   width: 18px;
   height: 18px;
 }
-.card:has(.cobre:active) {
+.card:active:not(:has(.add:active)) {
   transform: scale(0.985);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -152,8 +179,11 @@
   .card:hover .foto img {
     transform: scale(1.04);
   }
-  .card:hover .add {
+  .card:hover .addCirculo {
     background: var(--accent);
     transform: rotate(90deg);
+  }
+  .card:hover .add:active .addCirculo {
+    transform: rotate(90deg) scale(0.9);
   }
 }

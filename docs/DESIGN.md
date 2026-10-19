@@ -40,5 +40,5 @@ Títulos "sussurram": sans fino (peso 300) grande, com **uma** palavra ou frase 
 - Cabeçalho que encolhe (largura toda → pílula escura centralizada) com indicador deslizante.
 - Botão flutuante "Fazer pedido" (canto inferior direito) com aviso quando um item entra na sacola.
 - Painel do item: lateral no desktop, de baixo no celular; total rola os dígitos ao mudar.
-- Cartão do cardápio: foto 4:3 (4:5 no carrossel), nome em Fraunces, "a partir de", bolinhas de variação, botão +. Em encomendas, mais uma linha com o prazo.
+- Cartão do cardápio: foto 4:3 (4:5 no carrossel), nome em Fraunces, "a partir de", bolinhas de variação, botão +. Em encomendas, mais uma linha com o prazo. Toque em qualquer parte abre o painel (clique tratado no próprio cartão, sem película por cima). O "+" é um botão de 44x44: item sem escolha obrigatória vai direto para a sacola; com opções ou encomenda, abre o painel.
 - Calendário de encomenda: grade de 7 colunas em cartão branco; dia livre em `--cream`, escolhido em `--ink`, bloqueado riscado em `--ink-2` (dá para focar e ler o motivo); foco em `--accent`.
