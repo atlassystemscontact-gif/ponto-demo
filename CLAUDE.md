@@ -19,7 +19,8 @@ Next.js 16 (App Router, TypeScript), CSS Modules + tokens em `src/app/globals.cs
 - Sinal, código de rastreio e mensagem da encomenda: `src/lib/pedido.ts` (`valorSinal`, `codigoPedido`, `mensagemEncomenda`)
 - Seções da home: `src/components/home/`
 - Componentes de efeito (Card Swap, Counter, Tilted Card, Reveal): `src/components/ui/`
-- Logo e favicon: `src/components/Logo.tsx`, `src/app/icon.svg`, conceitos em `docs/marca/`
+- Logo e favicon: `src/components/Logo.tsx` (exporta os caminhos `LOGO_*`), `src/app/icon.svg`, conceitos em `docs/marca/`
+- Compartilhamento: metadata em `src/lib/seo.ts` (`SITE_URL`, `compartilhar()`); imagens Open Graph/Twitter em `src/lib/og.tsx` + `app/**/(opengraph|twitter)-image.tsx`; fotos e fontes em `assets/og/` (`node scripts/gerar-og.mjs`). Página que define `openGraph` perde a imagem herdada: use `compartilhar()`.
 - Fotos: `public/fotos/` (créditos em `docs/CREDITOS.md`; tratamento em `scripts/tratar-fotos.mjs`)
 
 ## Regras que não podem quebrar

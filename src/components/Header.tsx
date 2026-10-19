@@ -41,7 +41,7 @@ export function Header() {
   return (
     <header className={s.header} data-compacto={compacto || undefined}>
       <div className={s.bar}>
-        <Link href="/" className={s.logo} aria-label="Ponto, início">
+        <Link href="/" className={s.logo} aria-label="Ponto, página inicial">
           <Logo />
         </Link>
 

@@ -10,10 +10,16 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { ItemSheet } from "@/components/ItemSheet";
 import { CartFab } from "@/components/CartFab";
 import { AVISO_DEMO, DEMO } from "@/lib/data";
+import { SITE_URL, compartilhar } from "@/lib/seo";
+
+const titulo = "Ponto, café & chapa · Penha, São Paulo";
+const descricao = "Pão na chapa, misto quente e café especial da Mantiqueira. Monte seu pedido e retire no balcão ou receba na Penha. (Site de demonstração.)";
 
 export const metadata: Metadata = {
-  title: "Ponto, café & chapa · Penha, São Paulo",
-  description: "Pão na chapa, misto quente e café especial da Mantiqueira. Monte seu pedido e retire no balcão ou receba na Penha. (Site de demonstração.)",
+  metadataBase: new URL(SITE_URL),
+  title: titulo,
+  description: descricao,
+  ...compartilhar({ titulo, descricao, caminho: "/" }),
   // demonstração fora dos buscadores (o robots.txt libera o rastreamento para a meta ser lida)
   robots: DEMO ? { index: false, follow: false, googleBot: { index: false, follow: false } } : undefined,
 };

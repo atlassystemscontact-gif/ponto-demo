@@ -48,3 +48,4 @@ Nenhum efeito novo: a página reaproveita o que já existia. O calendário é co
 | Fonte | Elemento | Onde está no site | Arquivo |
 |---|---|---|---|
 | Próprio (sem referência) | Faixa fixa escura no pé da tela com o aviso de demonstração; o botão flutuante sobe para ficar acima dela | Todas as páginas, enquanto `DEMO = true` | `src/app/layout.tsx`, `.faixa-demo` em `src/app/globals.css` |
+| Próprio (sem referência), com `next/og` | Imagem de compartilhamento 1200x630: foto do site encostada à direita, degradê escuro, marca "ponto." e título sans fino + itálico | Prévia de links (WhatsApp, redes) de todas as páginas; própria em /encomendas | `src/lib/og.tsx`, `src/app/opengraph-image.tsx`, `src/app/encomendas/opengraph-image.tsx` |

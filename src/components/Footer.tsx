@@ -81,7 +81,7 @@ export function Footer() {
         </div>
       </div>
       <div className={`wrap ${s.base}`}>
-        <p>Site de demonstração feito pela Atlas Systems. Nome, preços, endereço e telefone são de exemplo. Fotos: Unsplash (créditos no projeto).</p>
+        <p>Site de demonstração feito pela Atlas Systems. Nome, preços e endereço são de exemplo. Pedidos de teste chegam à Atlas Systems pelo WhatsApp. Fotos: Unsplash (créditos no projeto).</p>
         <p>© {new Date().getFullYear()} Ponto</p>
       </div>
     </footer>

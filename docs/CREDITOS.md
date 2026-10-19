@@ -49,4 +49,7 @@ Todas **ilustrativas**: mostram um produto parecido, não o item feito pela casa
 | `public/fotos/enc-cesta.webp` | [Croissants em uma cesta com uma xícara de café](https://unsplash.com/photos/KVNHKXtQL1I) | só croissants (ilustra a cesta completa) |
 | `public/fotos/enc-kit.webp` | [Uma caixa cheia de biscoitos sentada ao lado de uma árvore de Natal](https://unsplash.com/photos/YzIje_ks69Y) | caixa de biscoitos (ilustra o kit) |
 
+### Imagens de compartilhamento (adicionadas em 19/10/2026)
+`assets/og/home.jpg` e `assets/og/encomendas.jpg` são recortes de `hero-espresso.webp` e `enc-bolo-natal.webp` (créditos acima), feitos por `scripts/gerar-og.mjs`. Fontes das imagens: `assets/og/fontes/LICENCA.md`.
+
 Para um cliente real: troque por fotos do próprio lugar (celular bom + luz da manhã já resolve) e rode `node scripts/tratar-fotos.mjs <pasta>` para padronizar.

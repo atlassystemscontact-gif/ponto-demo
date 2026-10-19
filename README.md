@@ -95,6 +95,13 @@ Com `DEMO = true` (hoje):
 
 O endereço da loja também é fictício (`Rua Exemplo, 123`) e, sem `loja.mapa`, a seção Visite não mostra o botão "Como chegar". Para pôr um cliente real no ar: `DEMO = false`, endereço, `mapa`, `WHATSAPP` e chave Pix reais em `data.ts`.
 
+## Compartilhamento (Open Graph e Twitter)
+- Endereço base: `SITE_URL` em `src/lib/seo.ts` (`https://ponto-demo.vercel.app`).
+- Título e descrição de cada página: `metadata` em `src/app/**/page.tsx` e `layout.tsx`, via `compartilhar()` (`src/lib/seo.ts`).
+- Imagens 1200x630, geradas no build por `src/lib/og.tsx`: foto do site + marca "ponto." + título. Padrão em `src/app/opengraph-image.tsx` e `twitter-image.tsx`; `/encomendas` tem a sua ("Encomendas de Natal.", textos de `encomendas.ts`).
+- Fotos de fundo: `assets/og/*.jpg`, recortadas por `node scripts/gerar-og.mjs` (rode de novo se trocar as fotos). Fontes TTF em `assets/og/fontes/` (OFL).
+- Para conferir: depois do build, as imagens ficam em `/opengraph-image` e `/encomendas/opengraph-image`.
+
 ## Publicar na Vercel
 Só com aprovação do Gabriel.
 ```

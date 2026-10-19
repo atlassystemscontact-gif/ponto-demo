@@ -1,7 +1,7 @@
 // Dados de contato e operação. Tudo aqui é de EXEMPLO (site de demonstração da Atlas Systems).
 
 // Modo demonstração. Com true: faixa fixa de aviso em todas as páginas, "[DEMO]" no começo de toda
-// mensagem de WhatsApp e site fora dos buscadores (noindex/nofollow + robots.txt).
+// mensagem de WhatsApp e site fora dos buscadores (meta noindex/nofollow; o robots.txt libera o rastreamento).
 // Para um cliente real no ar: false (e troque endereço, WhatsApp e chave Pix).
 export const DEMO = true;
 export const AVISO_DEMO = "Site de demonstração da Atlas Systems. Produtos, preços e Pix fictícios.";
