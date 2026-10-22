@@ -22,7 +22,7 @@ const fontes = Promise.all([
 const foto = async (nome: "home" | "encomendas") => `data:image/jpeg;base64,${(await readFile(raiz(`${nome}.jpg`))).toString("base64")}`;
 
 // marca exata do site (mesmos caminhos de Logo.tsx), letras claras e grão vermelho
-const logo = `data:image/svg+xml;base64,${Buffer.from(
+const _logoPonto = `data:image/svg+xml;base64,${Buffer.from(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${LOGO_VIEWBOX}"><path fill="#f4ede1" d="${LOGO_LETRAS}"/><path fill="#c8432b" fill-rule="evenodd" d="${LOGO_GRAO}"/></svg>`,
 ).toString("base64")}`;
 
@@ -50,14 +50,14 @@ export async function imagemOg({ fundo, titulo, sub }: { fundo: "home" | "encome
           }}
         />
         <div style={{ position: "relative", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 72px", width: 760, height: "100%" }}>
-          <img src={logo} width={250} height={80} />
+          <div style={{ display: "flex", flexDirection: "column", color: "#f4ede1" }}><div style={{ display: "flex", fontSize: 26, fontWeight: 300, letterSpacing: "0.04em" }}>Confeitaria artesanal</div><div style={{ display: "flex", fontFamily: "Fraunces", fontStyle: "italic", fontSize: 60, lineHeight: 1 }}>da Ka</div></div>
           <div style={{ display: "flex", flexDirection: "column", color: "#f4ede1" }}>
             <div style={{ display: "flex", fontSize: 88, fontWeight: 300, lineHeight: 1, letterSpacing: "-0.035em" }}>{titulo[0]}</div>
             <div style={{ display: "flex", fontFamily: "Fraunces", fontStyle: "italic", fontSize: 92, lineHeight: 1.08, letterSpacing: "-0.02em" }}>{titulo[1]}</div>
             <div style={{ display: "flex", marginTop: 26, fontSize: 28, fontWeight: 300, lineHeight: 1.35, color: "rgba(244,237,225,0.78)", maxWidth: 600 }}>{sub}</div>
           </div>
           <div style={{ display: "flex", fontSize: 20, fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "#d9a441" }}>
-            {DEMO ? "Site de demonstração · Atlas Systems" : loja.bairro}
+            {DEMO ? "Prévia · Atlas Systems" : loja.bairro}
           </div>
         </div>
       </div>

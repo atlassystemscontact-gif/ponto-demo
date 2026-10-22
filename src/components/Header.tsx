@@ -11,13 +11,7 @@ import { Logo } from "./Logo";
 import { useCart } from "@/lib/cart";
 import s from "./Header.module.css";
 
-const links = [
-  { href: "/", label: "Início" },
-  { href: "/cardapio", label: "Cardápio" },
-  { href: "/encomendas", label: "Encomendas" },
-  { href: "/#historia", label: "A casa" },
-  { href: "/#visite", label: "Visite" },
-];
+const links = [{ href: "/encomendas", label: "Encomendas" }];
 
 export function Header() {
   const [compacto, setCompacto] = useState(false);
@@ -41,7 +35,7 @@ export function Header() {
   return (
     <header className={s.header} data-compacto={compacto || undefined}>
       <div className={s.bar}>
-        <Link href="/" className={s.logo} aria-label="Ponto, página inicial">
+        <Link href="/" className={s.logo} aria-label="Confeitaria da Ka, encomendas">
           <Logo />
         </Link>
 

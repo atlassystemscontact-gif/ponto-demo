@@ -3,7 +3,7 @@ import { vitrine } from "@/lib/encomendas";
 import { compartilhar } from "@/lib/seo";
 import { Encomendas } from "./Encomendas";
 
-const titulo = `${vitrine.chamada} · Ponto, café & chapa`;
+const titulo = `${vitrine.chamada} · Confeitaria Artesanal da Ka`;
 
 export const metadata: Metadata = {
   title: titulo,

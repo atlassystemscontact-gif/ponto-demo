@@ -12,8 +12,8 @@ import { CartFab } from "@/components/CartFab";
 import { AVISO_DEMO, DEMO } from "@/lib/data";
 import { SITE_URL, compartilhar } from "@/lib/seo";
 
-const titulo = "Ponto, café & chapa · Penha, São Paulo";
-const descricao = "Pão na chapa, misto quente e café especial da Mantiqueira. Monte seu pedido e retire no balcão ou receba na Penha. (Site de demonstração.)";
+const titulo = "Confeitaria Artesanal da Ka · Encomendas";
+const descricao = "Bolo Vulcão, bolo de cenoura com brigadeiro e chocolatudo. Escolha, marque a data e o pedido chega pronto no WhatsApp. (Prévia.)";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

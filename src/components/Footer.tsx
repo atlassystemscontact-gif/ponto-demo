@@ -45,7 +45,7 @@ export function Footer() {
       <div className={`wrap ${s.grid}`}>
         <div className={s.marca}>
           <Logo className={s.logo} />
-          <p>Café da Mantiqueira, pão do dia e a chapa ligada desde as 6h30.</p>
+          <p>Bolos caseiros fresquinhos, macios e molhadinhos, e o Bolo Vulcão explodindo de recheio.</p>
         </div>
         <div>
           <p className="label">Onde</p>
@@ -69,10 +69,7 @@ export function Footer() {
           <p className="label">Navegar</p>
           <ul>
             <li>
-              <Link href="/cardapio">Cardápio</Link>
-            </li>
-            <li>
-              <Link href="/#historia">A casa</Link>
+              <Link href="/encomendas">Encomendas</Link>
             </li>
             <li>
               <Link href="/pedido">Sacola e pedido</Link>
@@ -82,7 +79,7 @@ export function Footer() {
       </div>
       <div className={`wrap ${s.base}`}>
         <p>Site de demonstração feito pela Atlas Systems. Nome, preços e endereço são de exemplo. Pedidos de teste chegam à Atlas Systems pelo WhatsApp. Fotos: Unsplash (créditos no projeto).</p>
-        <p>© {new Date().getFullYear()} Ponto</p>
+        <p>© {new Date().getFullYear()} {loja.nome}</p>
       </div>
     </footer>
   );

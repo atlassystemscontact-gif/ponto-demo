@@ -22,13 +22,13 @@ export type RegrasEncomenda = {
 
 // ---------- Textos da vitrine (página /encomendas e bloco da home) ----------
 export const vitrine = {
-  chamada: "Encomendas de Natal", // botão flutuante e links
-  titulo: ["Encomendas de", "Natal."], // a segunda parte sai em serif itálico
-  subtitulo: "Panetone de fermentação natural, bolo com casinhas de biscoito, torta, cesta de café da manhã e kit presente. Você escolhe, marca a data e confirma com um sinal via Pix.",
+  chamada: "Encomendas", // botão flutuante e links
+  titulo: ["Encomende seu", "bolo."], // a segunda parte sai em serif itálico
+  subtitulo: "Bolo Vulcão explodindo de recheio, bolo de cenoura com brigadeiro e o chocolatudo. Você escolhe, marca o dia e o pedido chega pronto no WhatsApp da Ka.",
   home: {
-    titulo: ["Encomendas de", "Natal."],
-    texto: "Panetone, bolo de Natal, torta, cesta e kit presente feitos aqui, com data marcada. Escolha o dia e a janela; a gente separa o seu.",
-    foto: "/fotos/enc-bolo-natal.webp",
+    titulo: ["Encomende seu", "bolo."],
+    texto: "Bolos caseiros fresquinhos, macios e molhadinhos, feitos sob encomenda com data marcada.",
+    foto: "/fotos/ka-vulcao.webp",
   },
 };
 
@@ -36,20 +36,17 @@ export const vitrine = {
 export const agenda = {
   janelas: {
     retirada: [
-      { id: "manha", nome: "Manhã", inicio: "08:00", fim: "11:00" },
+      { id: "manha", nome: "Manhã", inicio: "09:00", fim: "12:00" },
       { id: "tarde", nome: "Tarde", inicio: "14:00", fim: "18:00" },
+      { id: "noite", nome: "Noite", inicio: "18:00", fim: "21:00" },
     ],
     entrega: [
-      { id: "cedo", nome: "Bem cedo", inicio: "07:00", fim: "09:00" },
       { id: "manha", nome: "Manhã", inicio: "09:00", fim: "12:00" },
       { id: "tarde", nome: "Tarde", inicio: "14:00", fim: "18:00" },
     ],
   } satisfies Record<Modo, Janela[]>,
   horizonteDias: 75, // até quantos dias à frente o calendário aceita pedido
-  fechado: [
-    { data: "2026-12-25", motivo: "Dia de Natal: a casa fecha." },
-    { data: "2027-01-01", motivo: "Ano-novo: a casa fecha." },
-  ],
+  fechado: [] as { data: string; motivo: string }[], // prévia: dias fechados a combinar com a Ka
 };
 
 // ---------- Catálogo ----------
@@ -65,115 +62,63 @@ type Produto = {
   remover?: string[];
 } & RegrasEncomenda;
 
-const SEG_SAB: DiaSemana[] = [1, 2, 3, 4, 5, 6];
-const TER_SAB: DiaSemana[] = [2, 3, 4, 5, 6];
 const TODOS: DiaSemana[] = [0, 1, 2, 3, 4, 5, 6];
 
 const produtos: Produto[] = [
   {
-    id: "panetone",
-    nome: "Panetone artesanal",
-    descricao: "Fermentação natural de 36 horas, manteiga de verdade e casca de laranja feita aqui. Vem na forma de papel, pronto para dar de presente.",
-    foto: "/fotos/enc-panetone.webp",
-    buscaFoto: "panettone christmas",
-    tamanhos: [
-      { id: "500g", nome: "500 g", preco: 6900 },
-      { id: "1kg", nome: "1 kg", preco: 11900 },
-    ],
-    sabores: {
-      titulo: "Sabor",
-      itens: [
-        { id: "frutas", nome: "Frutas e laranja" },
-        { id: "chocolate", nome: "Gotas de chocolate 70%" },
-        { id: "doce-leite", nome: "Doce de leite e nozes", acrescimo: 1200 },
-      ],
-    },
-    adicionais: [{ id: "caixa", nome: "Caixa de presente", preco: 800 }],
-    mensagem: { rotulo: "Cartão", limite: 120, dica: "Vai num cartão preso na fita. Deixe em branco se não quiser." },
-    temporada: "Natal",
-    ultimaData: "2026-12-24",
-    prazoHoras: 48,
-    retirada: { dias: SEG_SAB, janelas: ["manha", "tarde"] },
-    entrega: { dias: SEG_SAB, janelas: ["manha", "tarde"] },
-  },
-  {
-    id: "bolo-natal",
-    nome: "Bolo de Natal",
-    descricao: "Massa amanteigada de especiarias, cobertura de cream cheese e casinhas de biscoito de gengibre feitas uma a uma.",
-    foto: "/fotos/enc-bolo-natal.webp",
-    buscaFoto: "christmas cake gingerbread houses",
-    tamanhos: [
-      { id: "p", nome: "P · serve 8", preco: 12900 },
-      { id: "m", nome: "M · serve 15", preco: 18900 },
-      { id: "g", nome: "G · serve 25", preco: 27900 },
-    ],
-    sabores: {
-      titulo: "Recheio",
-      itens: [
-        { id: "nozes", nome: "Nozes com doce de leite" },
-        { id: "frutas-vermelhas", nome: "Frutas vermelhas e baunilha", acrescimo: 1500 },
-      ],
-    },
-    mensagem: { rotulo: "Escrita no bolo", limite: 30, dica: "Uma frase curta, escrita com chocolate. Ex.: Feliz Natal, família" },
-    temporada: "Natal",
-    ultimaData: "2026-12-24",
-    prazoHoras: 72,
-    retirada: { dias: TER_SAB, janelas: ["manha", "tarde"] },
-    entrega: { dias: TER_SAB, janelas: ["manha", "tarde"] },
-  },
-  {
-    id: "torta-peca",
-    nome: "Torta de noz-pecã",
-    descricao: "Massa amanteigada, recheio de caramelo de rapadura e noz-pecã tostada por cima. Sai o ano todo.",
-    foto: "/fotos/enc-torta.webp",
-    buscaFoto: "pecan pie coffee",
-    tamanhos: [
-      { id: "18", nome: "18 cm · serve 8", preco: 9800 },
-      { id: "24", nome: "24 cm · serve 12", preco: 14800 },
-    ],
-    remover: ["Calda extra de caramelo"],
+    id: "vulcao",
+    nome: "Bolo Caseiro Vulcão",
+    descricao: "Macio, molhadinho e com recheio farto que causa erupção de delícia na boca. Feito só com ingredientes de 1ª qualidade.",
+    foto: "/fotos/ka-vulcao.webp",
+    buscaFoto: "",
+    tamanhos: [{ id: "inteiro", nome: "Bolo inteiro", preco: 7000 }],
     prazoHoras: 24,
-    retirada: { dias: SEG_SAB, janelas: ["manha", "tarde"] },
-    entrega: { dias: SEG_SAB, janelas: ["manha", "tarde"] },
+    retirada: { dias: TODOS, janelas: ["manha", "tarde", "noite"] },
+    entrega: { dias: TODOS, janelas: ["manha", "tarde"] },
   },
   {
-    id: "cesta-cafe",
-    nome: "Cesta de café da manhã",
-    descricao: "Croissant, pão de queijo, bolo de fubá, geleia da casa, frutas, café coado na garrafa térmica e suco de laranja. Chega cedo, ainda quente.",
-    foto: "/fotos/enc-cesta.webp",
-    buscaFoto: "breakfast basket croissants coffee",
-    tamanhos: [
-      { id: "2", nome: "Para 2 pessoas", preco: 15900 },
-      { id: "4", nome: "Para 4 pessoas", preco: 27900 },
-    ],
-    adicionais: [{ id: "mini-panetone", nome: "Mini panetone (100 g)", preco: 2200, max: 4 }],
-    mensagem: { rotulo: "Cartão", limite: 160, dica: "Vai escrito à mão dentro da cesta." },
-    temporada: "Natal",
+    id: "vulcao-gourmet",
+    nome: "Bolo Vulcão Gourmet",
+    descricao: "Explosão de chocolate nobre: macio por fora, recheio abundante e decoração especial. Perfeito para presentear.",
+    foto: "/fotos/ka-vulcao-gourmet.webp",
+    buscaFoto: "",
+    tamanhos: [{ id: "inteiro", nome: "Bolo inteiro", preco: 9000 }],
     prazoHoras: 24,
-    retirada: { dias: SEG_SAB, janelas: ["manha"] },
-    entrega: { dias: TODOS, janelas: ["cedo", "manha"] },
+    retirada: { dias: TODOS, janelas: ["manha", "tarde", "noite"] },
+    entrega: { dias: TODOS, janelas: ["manha", "tarde"] },
   },
   {
-    id: "kit-presente",
-    nome: "Kit presente do Ponto",
-    descricao: "250 g do café da Mantiqueira, caixa de biscoitos amanteigados de Natal e caneca esmaltada da casa.",
-    foto: "/fotos/enc-kit.webp",
-    buscaFoto: "christmas cookies gift box",
-    tamanhos: [{ id: "unico", nome: "Kit completo", preco: 13900 }],
-    sabores: {
-      titulo: "Café",
-      itens: [
-        { id: "graos", nome: "Em grãos" },
-        { id: "coado", nome: "Moído para coado" },
-        { id: "italiana", nome: "Moído para italiana" },
-      ],
-    },
-    mensagem: { rotulo: "Cartão escrito à mão", limite: 200, preco: 500, dica: "Escrito pela equipe, com caneta de verdade." },
-    temporada: "Natal",
-    ultimaData: "2026-12-24",
-    prazoHoras: 48,
-    retirada: { dias: SEG_SAB, janelas: ["manha", "tarde"] },
-    entrega: { dias: SEG_SAB, janelas: ["manha", "tarde"] },
+    id: "vulcao-frutas",
+    nome: "Bolo Vulcão com Frutas",
+    descricao: "Erupção tropical: recheio de morango suculento com abacaxi refrescante. O vulcão mais fresco da casa.",
+    foto: "/fotos/ka-vulcao-frutas.webp",
+    buscaFoto: "",
+    tamanhos: [{ id: "inteiro", nome: "Bolo inteiro", preco: 7000 }],
+    prazoHoras: 24,
+    retirada: { dias: TODOS, janelas: ["manha", "tarde", "noite"] },
+    entrega: { dias: TODOS, janelas: ["manha", "tarde"] },
+  },
+  {
+    id: "cenoura",
+    nome: "Bolo de Cenoura com Brigadeiro",
+    descricao: "O carro-chefe: macio, derrete na boca e vem com muita cobertura de brigadeiro cremoso por todo lado.",
+    foto: "/fotos/ka-cenoura.webp",
+    buscaFoto: "",
+    tamanhos: [{ id: "inteiro", nome: "Bolo inteiro", preco: 3700 }],
+    prazoHoras: 24,
+    retirada: { dias: TODOS, janelas: ["manha", "tarde", "noite"] },
+    entrega: { dias: TODOS, janelas: ["manha", "tarde"] },
+  },
+  {
+    id: "chocolatudo",
+    nome: "Bolo Chocolatudo",
+    descricao: "Massa molhadinha com recheio de brigadeiro que derrete na boca.",
+    foto: "/fotos/ka-chocolatudo.webp",
+    buscaFoto: "",
+    tamanhos: [{ id: "inteiro", nome: "Bolo inteiro", preco: 3700 }],
+    prazoHoras: 24,
+    retirada: { dias: TODOS, janelas: ["manha", "tarde", "noite"] },
+    entrega: { dias: TODOS, janelas: ["manha", "tarde"] },
   },
 ];
 
